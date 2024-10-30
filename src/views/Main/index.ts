@@ -1,0 +1,1 @@
+export { default as MainPage } from "@/views/Main/ui/MainPage.vue"

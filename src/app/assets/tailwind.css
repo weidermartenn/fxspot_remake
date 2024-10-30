@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+        @apply bg-dark text-light;
+        @apply min-h-screen leading-relaxed;
+    }
+
+    html {
+        @apply font-ubuntu;
+    }
+
+    * {
+        @apply antialiased m-0 p-0;
+    }
+}
