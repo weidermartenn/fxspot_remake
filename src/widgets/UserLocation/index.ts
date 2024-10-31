@@ -1,0 +1,1 @@
+export { default as UserLocation } from "./ui/UserLocation.vue";
