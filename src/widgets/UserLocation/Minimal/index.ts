@@ -1,0 +1,1 @@
+export { default as Minimal } from './ui/Minimal.vue'

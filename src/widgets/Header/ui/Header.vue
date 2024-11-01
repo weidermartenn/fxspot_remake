@@ -7,12 +7,12 @@
       @mouseover="showText = true"
       @mouseleave="showText = false"
     >
-      <img :src="logo" />
+      <img :src="logo" loading="lazy"/>
       <Transition name="translate">
         <span v-if="showText" class="text-3xl">FXSpot</span>
       </Transition>
     </a>
-    <UserLocation />
+    <slot />
     <div class="ml-auto flex items-center gap-4">
       <a href="https://github.com/weidermartenn/fxspot_remake" target="_blank">
         <i class="fa-brands fa-github text-3xl"></i>
@@ -25,7 +25,8 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import logo from "@/app/assets/fxlogo.svg";
-import UserLocation from "@/widgets/UserLocation/ui/UserLocation.vue";
+import Minimal from "@/widgets/UserLocation/Minimal/ui/Minimal.vue";
+import { error } from "console";
 
 const showText = ref(false);
 </script>
