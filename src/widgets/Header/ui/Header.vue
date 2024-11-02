@@ -1,5 +1,5 @@
 <template>
-  <header class="h-[75px] flex items-center px-4">
+  <header class="sticky w-full h-[75px] flex items-center justify-between px-4">
     <a
       href="/"
       class="hoverimage w-[160px] flex items-center"
@@ -13,7 +13,7 @@
       </Transition>
     </a>
     <slot />
-    <div class="ml-auto flex items-center gap-4">
+    <div class="flex items-center gap-4">
       <a href="https://github.com/weidermartenn/fxspot_remake" target="_blank">
         <i class="fa-brands fa-github text-3xl"></i>
       </a>

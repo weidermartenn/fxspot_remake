@@ -1,7 +1,7 @@
 <template>
   <div class="min-h-screen">
     <Header>
-      <Minimal/>
+      <Minimal />
     </Header>
     <router-view />
   </div>
