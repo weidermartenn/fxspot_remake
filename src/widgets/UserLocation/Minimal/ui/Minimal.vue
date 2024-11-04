@@ -4,16 +4,15 @@
     :style="{ width: containerWidth }"
   >
     <!-- Ошибка -->
-    <div
-      v-if="error"
-      class="gap-2 flex justify-center items-center text-red-500"
-    >
-      <i class="fa-solid fa-xmark text-xl"></i>
-      {{ error }}
+    <Notification :error="error" />
+    <div v-if="error" class="flex justify-center items-center px-20 gap-2">
+      <span>NO</span>
+      <img :src="sadcloud" alt="sadcloud" class="w-14 h-12" />
+      <span>WEATHER</span>
     </div>
 
     <!-- Загрузка -->
-    <div v-else-if="loading" class="flex justify-center items-center px-20">
+    <div v-if="loading" class="flex justify-center items-center px-20">
       <div class="loader"></div>
     </div>
 
@@ -50,6 +49,8 @@
 <script setup lang="ts">
 import { ref, onMounted, onBeforeMount, toRefs } from "vue";
 import { useLocationStore } from "@/widgets/UserLocation/Minimal/model/store";
+import Notification from "@/shared/Notification/ui/Notification.vue";
+import sadcloud from "@/app/assets/sadcloud.svg";
 
 const locationStore = useLocationStore();
 const { city, temp, condition_icon, error, loading, weatherData, countryCode } =

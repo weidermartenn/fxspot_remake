@@ -34,7 +34,7 @@ export const useLocationStore = defineStore('location', {
                 this.temp = Math.round(current?.temp_c || '--');
                 this.condition_icon = current?.condition?.icon || null;
             } catch {
-                this.error = 'Ошибка при загрузке данных о погоде';
+                this.error = 'Ошибка при загрузке данных';
             } finally {
                 this.loading = false;
             }

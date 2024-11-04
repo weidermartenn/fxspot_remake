@@ -1,0 +1,14 @@
+<svg width="100" height="80" xmlns="http://www.w3.org/2000/svg" stroke="null">
+ <g id="Слой_1">
+  <title>Слой 1</title>
+  <ellipse stroke-opacity="0" stroke="#0f0f00" ry="18.34661" rx="18.13504" id="svg_1" cy="47.30897" cx="20.66952" fill="#fff"/>
+  <path stroke="#0f0f00" id="svg_2" d="m46.32782,63.71486c-16.84477,0 -30.48904,-11.37366 -30.48904,-25.41522c0,-14.04156 13.64427,-25.41522 30.48904,-25.41522c16.84477,0 30.48904,11.37366 30.48904,25.41522c0,14.04156 -13.64427,25.41522 -30.48904,25.41522z" opacity="undefined" stroke-opacity="0" fill="#fff"/>
+  <path stroke="#0f0f00" id="svg_3" d="m78.79667,65.621c-10.45688,0 -18.92696,-8.81459 -18.92696,-19.69679c0,-10.8822 8.47008,-19.69679 18.92696,-19.69679c10.45688,0 18.92696,8.81459 18.92696,19.69679c0,10.8822 -8.47008,19.69679 -18.92696,19.69679z" opacity="undefined" stroke-opacity="0" fill="#fff"/>
+  <rect stroke="#0f0f00" id="svg_4" height="20.01448" width="60.02776" y="45.60652" x="19.16486" stroke-opacity="0" fill="#fff"/>
+  <path transform="rotate(33.7252 34.6778 33.2107)" stroke="#000000" id="svg_6" d="m36.11118,32.28572c-8.15097,5.41111 5.46,-3.57655 -2.86676,1.84992" opacity="undefined" stroke-width="6" fill="none"/>
+  <path id="svg_9" d="m29.23258,60.4163c-0.41266,-16.7819 37.14027,-16.36923 36.72761,0" opacity="undefined" stroke-width="5" stroke="#000000" fill="none"/>
+  <path transform="rotate(33.7252 60.1258 33.2107)" stroke="#000000" id="svg_11" d="m61.55915,32.28572c-8.15097,5.4111 5.46,-3.57655 -2.86676,1.84991" opacity="undefined" stroke-width="6" fill="none"/>
+  <path stroke="#000000" id="svg_12" d="m64.45516,46.52366c-0.88815,-0.07247 -2.62167,-1.11813 -2.07144,-3.94362l2.07144,-4.62946l1.93792,4.71874c0.61048,2.62191 -1.04976,3.92682 -1.93792,3.85435z" opacity="undefined" stroke-opacity="0" fill="#56aaff"/>
+ </g>
+
+</svg>
