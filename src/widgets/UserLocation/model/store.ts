@@ -21,8 +21,8 @@ export const useLocationStore = defineStore('location', {
             this.error = null;
             
             try {
-                const { data: { latitude, longitude, countryCode } } = await axios.get('https://ipapi.co/json/');
-                this.countryCode = countryCode;
+                const { data: { latitude, longitude, country } } = await axios.get(`https://ipapi.co/json/`);
+                this.countryCode = country;
 
                 const apiKey = import.meta.env.VITE_WEATHER_API_KEY;
                 const { data: {location, current} } = await axios.get(

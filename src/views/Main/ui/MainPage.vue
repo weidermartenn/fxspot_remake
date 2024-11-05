@@ -1,6 +1,6 @@
 <template>
-    <div class="block h-[calc(100vh-75px)]">
-        
+    <div class="h-[calc(100vh-75px)]">
+
     </div>
 </template>
 

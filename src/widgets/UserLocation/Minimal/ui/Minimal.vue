@@ -17,40 +17,44 @@
     </div>
 
     <!-- Данные о погоде -->
-    <button
-      v-if="weatherData && !loading && !error"
-      class="flex flex-row gap-10 justify-between items-center px-2 cursor-pointer"
-    >
-      <div ref="cityContainer" class="flex flex-col">
-        <div class="flex flex-row gap-2 items-center">
-          <img
-            v-if="countryCode"
-            :src="`https://flagcdn.com/16x12/${countryCode.toLowerCase()}.png`"
-            :alt="countryCode"
-          />
-          <p>{{ city }}</p>
+    <section v-show="!loading && !error && isVisible" class="flow-in">
+      <button
+        v-if="weatherData && !loading && !error"
+        class="flex flex-row gap-10 justify-between items-center px-2 cursor-pointer"
+      >
+        <div ref="cityContainer" class="flex flex-col">
+          <div class="flex flex-row gap-2 items-center">
+            <img
+              v-if="countryCode"
+              :src="`https://flagcdn.com/16x12/${countryCode.toLowerCase()}.png`"
+              :alt="countryCode"
+            />
+            <p>{{ city }}</p>
+          </div>
+          <div class="flex flex-row items-center gap-2">
+            <i class="fa-solid fa-temperature-three-quarters"></i>
+            <p
+              v-if="temp !== '--'"
+              class="flex flex-row justify-center items-center"
+            >
+              {{ temp }}°C
+            </p>
+            <p v-else>Температура неизвестна</p>
+          </div>
         </div>
-        <div class="flex flex-row items-center gap-2">
-          <i class="fa-solid fa-temperature-three-quarters"></i>
-          <p
-            v-if="temp !== '--'"
-            class="flex flex-row justify-center items-center"
-          >
-            {{ temp }}°C
-          </p>
-          <p v-else>Температура неизвестна</p>
-        </div>
-      </div>
-      <img :src="condition_icon" :alt="condition_icon" class="w-12" />
-    </button>
+        <img :src="condition_icon" :alt="condition_icon" class="w-12" />
+      </button>
+    </section>
   </section>
 </template>
 
 <script setup lang="ts">
 import { ref, onMounted, onBeforeMount, toRefs } from "vue";
-import { useLocationStore } from "@/widgets/UserLocation/Minimal/model/store";
+import { useLocationStore } from "@/widgets/UserLocation/model/store";
 import Notification from "@/shared/Notification/ui/Notification.vue";
 import sadcloud from "@/app/assets/sadcloud.svg";
+
+const isVisible = ref(false);
 
 const locationStore = useLocationStore();
 const { city, temp, condition_icon, error, loading, weatherData, countryCode } =
@@ -81,7 +85,18 @@ onBeforeMount(() => {
 onMounted(() => {
   locationStore.fetchWeatherByIP();
   setupResizeObserver();
+  isVisible.value = true;
 });
 </script>
 
-<style scoped></style>
+<style scoped>
+
+.flow-in {
+  animation: flow-in 0.5s ease-in-out;
+}
+
+@keyframes flow-in {
+  from { transform: translateY(-100px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+</style>
