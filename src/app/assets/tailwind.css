@@ -27,4 +27,20 @@
         from { transform: rotate(0deg); }
         to { transform: rotate(360deg); }
     }
+
+    ::-webkit-scrollbar {
+        @apply w-4;
+    }
+
+    ::-webkit-scrollbar-track {
+        @apply bg-dark;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        @apply bg-primary;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        @apply bg-green-700;
+    }
 }
