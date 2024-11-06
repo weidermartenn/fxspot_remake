@@ -5,12 +5,10 @@ import type { LocationState } from './LocationState';
 export const useLocationStore = defineStore('location', {
     state: (): LocationState => ({
         weatherData: null,
+        forecastData: null,
         error: null,
         loading: false,
         countryCode: null,
-        city: '',
-        temp: '--',
-        condition_icon: null
     }),
     getters: {
         isLoading: (state) => state.loading,
@@ -25,16 +23,33 @@ export const useLocationStore = defineStore('location', {
                 this.countryCode = country;
 
                 const apiKey = import.meta.env.VITE_WEATHER_API_KEY;
-                const { data: {location, current} } = await axios.get(
+                const { data } = await axios.get(
                     `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&lang=ru&q=${latitude},${longitude}&days=1`
                 );
 
-                this.weatherData = { location, current };
-                this.city = location?.name || 'Неизвестный город';
-                this.temp = Math.round(current?.temp_c || '--');
-                this.condition_icon = current?.condition?.icon || null;
+                this.weatherData = data;
             } catch {
                 this.error = 'Ошибка при загрузке данных';
+            } finally {
+                this.loading = false;
+            }
+        },
+
+        async fetchWeatherForecast(days: number = 3) {
+            this.loading = true;
+            this.error = null;
+
+            try {
+                const { data: { latitude, longitude } } = await axios.get(`https://ipapi.co/json/`);
+                const apiKey = import.meta.env.VITE_WEATHER_API_KEY;
+                
+                const { data: { forecast } } = await axios.get(
+                    `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&lang=ru&q=${latitude},${longitude}&days=${days}`
+                );
+
+                this.forecastData = forecast;
+            } catch {
+                this.error = 'Ошибка при загрузке прогноза';
             } finally {
                 this.loading = false;
             }
