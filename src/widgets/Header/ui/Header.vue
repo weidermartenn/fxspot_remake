@@ -13,7 +13,7 @@
         <span v-if="showText" class="text-3xl">FXSpot</span>
       </Transition>
     </a>
-    <slot />
+    <slot/>
     <div class="flex items-center gap-4">
       <a href="https://github.com/weidermartenn/fxspot_remake" target="_blank">
         <i class="fa-brands fa-github text-3xl"></i>
@@ -27,7 +27,6 @@
 import { onMounted, ref } from "vue";
 import logo from "@/app/assets/fxlogo.svg";
 import Minimal from "@/widgets/UserLocation/Minimal/ui/Minimal.vue";
-import { error } from "console";
 
 const isVisible = ref(false);
 const showText = ref(false);

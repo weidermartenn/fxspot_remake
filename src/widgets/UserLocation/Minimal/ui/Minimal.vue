@@ -2,6 +2,8 @@
   <section
     class="p-2 rounded-md flex items-center justify-center"
     :style="{ width: containerWidth }"
+    @mouseover="showText = true"
+    @mouseleave="showText = false"
   >
     <!-- Ошибка -->
     <Notification :error="error" />
@@ -55,6 +57,9 @@
         />
       </button>
     </section>
+    <Transition name="translate">
+      <span v-if="showText" class="text-md ml-6">Узнайте прогноз погоды</span>
+    </Transition>
     <Transition name="modal" mode="out-in">
       <Modal v-if="isModalOpen" v-model="isModalOpen" key="modal" />
     </Transition>
@@ -69,8 +74,8 @@ import sadcloud from "@/app/assets/sadcloud.svg";
 import Modal from "../../Modal/ui/Modal.vue";
 
 const isModalOpen = ref(false);
-
 const isVisible = ref(false);
+const showText = ref(false);
 
 const locationStore = useLocationStore();
 const { error, loading, weatherData, countryCode } = toRefs(locationStore);
@@ -105,6 +110,7 @@ onMounted(() => {
 </script>
 
 <style scoped>
+
 .flow-in {
   animation: flow-in 0.5s ease-in-out;
 }
@@ -128,5 +134,22 @@ onMounted(() => {
 .modal-enter-from,
 .modal-leave-to {
   opacity: 0;
+}
+
+.translate-enter-active,
+.translate-leave-active {
+  transition: all 0.3s ease;
+}
+
+.translate-enter-from,
+.translate-leave-to {
+  opacity: 0;
+  transform: translateX(-100px);
+}
+
+.translate-enter-to,
+.translate-leave-from {
+  opacity: 1;
+  transform: translateX(0px);
 }
 </style>

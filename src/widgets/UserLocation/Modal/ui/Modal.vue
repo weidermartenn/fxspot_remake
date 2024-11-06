@@ -3,7 +3,12 @@
     v-if="props.modelValue"
     class="fixed inset-0 backdrop-blur-md flex justify-center items-center z-50"
   >
-    <button @click="closeModal" class="absolute top-2 right-2 text-gray-500 hover:text-gray-700">✖</button>
+    <section class="relative bg-primary p-4 rounded-md basis-1/2 h-1/2">
+      <i
+        @click="closeModal"
+        class="fa-solid fa-xmark absolute top-2 right-4 text-emerald-900 hover:text-emerald-800 text-2xl cursor-pointer"
+      ></i>
+    </section>
   </div>
 </template>
 
