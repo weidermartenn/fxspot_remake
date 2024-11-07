@@ -31,7 +31,7 @@ watch(toRef(props, "error"), (newError) => {
 
     setTimeout(() => {
       notifications.value.shift();
-    }, 5000);
+    }, 3000);
 
     if (notifications.value.length > 5) {
       notifications.value.shift();
